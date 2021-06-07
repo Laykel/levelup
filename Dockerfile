@@ -4,8 +4,9 @@ FROM node:current-alpine as build
 WORKDIR /src
 COPY . .
 
+RUN apk add chromium
 RUN npm install
-RUN npm test # coverage and stuff?
+# RUN npm run test --coverage
 
 RUN npm run build
 
@@ -13,7 +14,7 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 COPY --from=build /src/build /usr/share/nginx/html
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
