@@ -1,6 +1,10 @@
-# New Project
+# Level Up: test project
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
+
+## Goals
+
+Level up in a few key technologies.
 
 ## Available Scripts
 
