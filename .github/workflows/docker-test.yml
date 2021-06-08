@@ -6,17 +6,7 @@ on:
     - main
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Access repo at $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-
-      - name: Lint project
-        run: npm run lint
-
-  test:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image and test
-        run: docker build --tag levelup:${{ github.sha }} .
+        run: docker build --target build --tag levelup-test:${{ github.sha }} .
