@@ -6,6 +6,16 @@ on:
     - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Access repo at $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      - name: Lint project
+        run: npm run lint
+
   test:
     runs-on: ubuntu-latest
 
