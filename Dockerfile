@@ -1,13 +1,18 @@
-# Build environment
-FROM node:current-alpine as build
+# Lint and run all tests
+FROM node:current-alpine as test
 
 WORKDIR /src
 COPY . .
 
 RUN apk add chromium
 RUN npm install
+
+RUN npm run lint
 # RUN npm run test --coverage
 
+FROM test as build
+
+WORKDIR /src
 RUN npm run build
 
 # Production environment
