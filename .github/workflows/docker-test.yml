@@ -15,4 +15,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image and test
-        run: docker build --tag levelup:${{ github.sha }}
+        run: docker build --tag levelup:${{ github.sha }} .
