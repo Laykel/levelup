@@ -30,4 +30,4 @@ jobs:
         uses: manarbenkraouda/lcov-reporter-action@v0.3.5.3
         with:
           github-token: ${{ github.token }}
-          hide-table: true
+          hide-table: false
