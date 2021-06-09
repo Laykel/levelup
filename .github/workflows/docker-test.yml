@@ -13,5 +13,17 @@ jobs:
       # Access repo at $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
 
-      - name: Build image and test
-        run: docker build --target test --tag levelup-test:${{ github.sha }} .
+      - name: Test pwd
+        run: echo $HOME $PWD $GITHUB_WORKSPACE 
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
+
+      - name: Setup Playwright to run tests on multiple browsers
+        uses: microsoft/playwright-github-action@v1.4.4
+      
+      - name: Lint and test sources
+        run: |
+          npm ci
+          npm run lint
+          npm run test

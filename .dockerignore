@@ -1,3 +1,5 @@
+.git
 .snowpack
+coverage
 build
 node_modules
