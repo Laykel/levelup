@@ -29,5 +29,5 @@ jobs:
       - name: Partial LCOV Code Coverage Report
         uses: manarbenkraouda/lcov-reporter-action@v0.3.5.3
         with:
-          github-token: ${{ github.tokener }}
+          github-token: ${{ github.token }}
           hide-table: true
