@@ -10,6 +10,10 @@ RUN npm run lint
 # In a perfect world:
 # RUN npm run test
 
+
+# Build production ready sources
+FROM test as build
+
 RUN npm run build
 
 
