@@ -23,4 +23,6 @@ jobs:
         run: docker build -t ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }} --target dev .
 
       - name: Push image to DO registry
-        run: docker push ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
+        run: |
+          doctl registry login
+          docker push ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
