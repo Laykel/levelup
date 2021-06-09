@@ -1,4 +1,4 @@
-name: Lint and test
+name: Lint and test on runner
 
 on:
   pull_request:
@@ -26,8 +26,7 @@ jobs:
           npm run lint
           npm run test
 
-      - name: Partial LCOV Code Coverage Report
+      - name: Basic code coverage report
         uses: manarbenkraouda/lcov-reporter-action@v0.3.5.3
         with:
           github-token: ${{ github.token }}
-          hide-table: false
