@@ -7,7 +7,6 @@ COPY . .
 
 RUN npm ci
 RUN npm run lint
-
 # In a perfect world:
 # RUN npm run test
 
