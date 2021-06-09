@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.DOCTL_TOKEN }}
 
       - name: Build dev docker image
-        run: docker build -t levelup-dev:${{ github.sha }} --target dev .
+        run: docker build -t ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }} --target dev .
 
       - name: Push image to DO registry
-        run: docker push registry.digitalocean.com/laykelregistry/levelup-dev:${{ github.sha }}
+        run: docker push ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
