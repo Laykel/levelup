@@ -11,19 +11,17 @@ jobs:
 
     steps:
       # Access repo at $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-
-      - name: Test pwd
-        run: echo $HOME $PWD $GITHUB_WORKSPACE 
+      - uses: actions/checkout@v2.3.4
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
 
-      - name: Setup Playwright to run tests on multiple browsers
-        uses: microsoft/playwright-github-action@v1.4.4
-      
+      - name: Install dependencies
+        run: |
+          npx playwright install-deps
+          npm ci
+
       - name: Lint and test sources
         run: |
-          npm ci
           npm run lint
           npm run test
