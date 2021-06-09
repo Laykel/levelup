@@ -1,4 +1,4 @@
-name: Build docker image and run tests
+name: Lint and test
 
 on:
   pull_request:
@@ -25,3 +25,8 @@ jobs:
         run: |
           npm run lint
           npm run test
+
+      - name: Code Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.2.11
+        with:
+          github-token: ${{ github.token }}
