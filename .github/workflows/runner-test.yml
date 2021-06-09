@@ -26,7 +26,8 @@ jobs:
           npm run lint
           npm run test
 
-      - name: Code Coverage Report
-        uses: romeovs/lcov-reporter-action@v0.2.11
+      - name: Partial LCOV Code Coverage Report
+        uses: manarbenkraouda/lcov-reporter-action@v0.3.5.3
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ github.tokener }}
+          hide-table: true
