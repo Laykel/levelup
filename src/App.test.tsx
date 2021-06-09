@@ -9,4 +9,8 @@ describe('<App>', () => {
     const linkElement = getByText(/learn react/i);
     expect(document.body.contains(linkElement));
   });
+
+  it('test', () => {
+    expect(1).equal(1);
+  });
 });
