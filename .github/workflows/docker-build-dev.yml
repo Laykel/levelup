@@ -1,0 +1,18 @@
+name: Build and push dev image
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Access repo at $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2.3.4
+
+      - name: Build dev docker image
+        run: docker build -t levelup-dev:${{ github.sha  }} --target dev .
+        # Then push...

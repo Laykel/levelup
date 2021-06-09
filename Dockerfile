@@ -12,8 +12,8 @@ RUN npm run lint
 
 
 # Build dev image
-# docker build -t <tag_name> --target serve .
-FROM test as serve
+# docker build -t <tag_name> --target dev .
+FROM test as dev
 
 EXPOSE 8080
 CMD ["npm", "start"]
