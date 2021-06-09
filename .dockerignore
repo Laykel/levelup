@@ -1,4 +1,6 @@
 .git
+.github
+
 .snowpack
 coverage
 build
