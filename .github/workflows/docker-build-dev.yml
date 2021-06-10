@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
 
+    env:
+      IMAGE_NAME: ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
+
     steps:
       # Access repo at $GITHUB_WORKSPACE
       - uses: actions/checkout@v2.3.4
@@ -20,9 +23,9 @@ jobs:
           token: ${{ secrets.DOCTL_TOKEN }}
 
       - name: Build dev docker image
-        run: docker build -t ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }} --target dev .
+        run: docker build -t ${{ env.IMAGE_NAME }} --target dev .
 
       - name: Push image to DO registry
         run: |
           doctl registry login
-          docker push ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
+          docker push ${{ env.IMAGE_NAME }}
