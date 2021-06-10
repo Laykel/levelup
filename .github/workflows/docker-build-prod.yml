@@ -1,0 +1,31 @@
+name: Build and push prod image
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  build-prod:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    env:
+      IMAGE_NAME: ${{ secrets.DO_REPOSITORY }}/levelup:${{ github.event.release.tag_name }}
+
+    steps:
+      # Access repo at $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2.3.4
+
+      - name: DigitalOcean - setup doctl
+        uses: digitalocean/action-doctl@v2.1.0
+        with:
+          token: ${{ secrets.DOCTL_TOKEN }}
+
+      - name: Build prod docker image
+        run: docker build -t ${{ env.IMAGE_NAME }} .
+
+      - name: Push image to DO registry
+        run: |
+          doctl registry login
+          docker push ${{ env.IMAGE_NAME }}
