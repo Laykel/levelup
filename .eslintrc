@@ -17,7 +17,7 @@
   },
   "settings": {
     "react": {
-      "version": "detect"
+      "version": "17"
     }
   },
   "rules": {
@@ -25,9 +25,9 @@
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
-    "import/export": 0,
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/display-name": "off",
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "react/no-unescaped-entities": 0
   }
 }

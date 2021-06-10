@@ -1,10 +1,9 @@
-import React, { useState, useEffect as useEffect } from 'react';
+// TODO Find a way to not have to import React
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-interface AppProps {}
-
-function App({}: AppProps) {
+const App: React.FC = () => {
   // Create the count state.
   const [count, setCount] = useState(0);
 
@@ -38,6 +37,6 @@ function App({}: AppProps) {
       </header>
     </div>
   );
-}
+};
 
 export default App;
