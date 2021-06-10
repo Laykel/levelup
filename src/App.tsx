@@ -1,9 +1,9 @@
 // TODO Find a way to not have to import React
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const App: React.FC = () => {
+const App: FC = () => {
   // Create the count state.
   const [count, setCount] = useState(0);
 
