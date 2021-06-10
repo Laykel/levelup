@@ -1,10 +1,12 @@
 {
   "include": ["src", "types"],
+  "exclude": ["node_modules", "build"],
+  "lib": ["dom", "esnext"],
   "compilerOptions": {
     "module": "esnext",
-    "target": "esnext",
+    "target": "es5",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     /* paths - import rewriting/resolving */
     "paths": {
@@ -13,15 +15,22 @@
       //     "*": [".snowpack/types/*"]
       // More info: https://www.snowpack.dev/guides/streaming-imports
     },
-    /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,
     /* Additional Options */
-    "strict": true,
     "skipLibCheck": true,
     "types": ["mocha", "snowpack-env"],
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    /* Enforce style */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false, // TODO Don't do that and import React automatically...
+    "noUnusedParameters": true,
   }
 }
