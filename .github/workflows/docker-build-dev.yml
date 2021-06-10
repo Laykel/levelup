@@ -11,7 +11,7 @@ jobs:
     environment: dev
 
     env:
-      IMAGE_NAME: ${{ secrets.DO_REPOSITORY }}/levelup-dev:${{ github.sha }}
+      IMAGE_NAME: ${{ secrets.DO_REPOSITORY }}/levelup:master
 
     steps:
       # Access repo at $GITHUB_WORKSPACE
