@@ -31,7 +31,7 @@ const App: FC = () => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            Learn React
+            Learn Reactishes
           </a>
         </p>
       </header>
