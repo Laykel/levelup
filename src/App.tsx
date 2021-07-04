@@ -17,6 +17,7 @@ const App: FC = () => {
   return (
     <div className='App'>
       <header className='App-header'>
+        <h1>Leveling up, are we?</h1>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
           Edit <code>src/App.tsx</code> and save to reload. Or don't. Who cares?

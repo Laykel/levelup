@@ -27,5 +27,5 @@ jobs:
 
       - name: Push image to DO registry
         run: |
-          doctl registry login
+          doctl registry login --expiry-seconds 180
           docker push ${{ env.IMAGE_NAME }}
